@@ -1,0 +1,98 @@
+
+# Function for basic calculator
+def basic_calculator():
+
+    # While loop, so you can use the calculator over and over
+    while True:
+
+        # Gets input for first number
+        userinput = input("Whats your first number: ")
+        x = userinput
+
+        # Gets input for second number
+        userinput = input("Whats your second number: ")
+        y = userinput
+
+        # Gets input for operation
+        userinput = input("What kind of operation? +, -, *, /: ")
+        operation = userinput
+
+        # If statements for all types of operations
+        if operation == "+":
+            print(int(x) + int(y))
+
+        if operation == "-":
+            print(int(x) - int(y))
+
+        if operation == "*":
+            print(int(x) * int(y))
+
+        if operation == "/":
+            print(int(x) / int(y))
+
+        # If an invalid input is entered it prints invalid
+        if operation != "+" or "-" or "*" or "/":
+            print("Invalid Input")
+
+        # Code to end the while loop or repeat it
+        userinput = input("Would you like to calculate again? ")
+        if userinput.lower() == "yes" or userinput.lower() == "y":
+            roots_calculator()
+
+        elif userinput.lower() == "no" or userinput.lower() == "n":
+            break
+
+# Function for roots calculator
+# Does the same thing as basic calculator with different types of math
+
+
+def roots_calculator():
+
+    while True:
+        userinput = input("Would you like to square a number or find the root? ")
+
+        if userinput.lower() == "square" or userinput.lower() == "s":
+
+            userinput = input("Whats your base number: ")
+            x = userinput
+
+            userinput = input("Whats your exponent: ")
+            y = userinput
+
+            print(int(x) ** int(y))
+
+            user_square = input("Would you like to calculate again?")
+            if user_square.lower() == "yes" or user_square.lower() == "y":
+                roots_calculator()
+
+            elif user_square.lower() == "no" or user_square.lower() == "n":
+                break
+
+        if userinput.lower() == "root" or userinput.lower() == "r":
+
+            userinput = input("Whats your base number: ")
+            x = userinput
+
+            userinput = input("Whats your root: ")
+            y = userinput
+
+            print(int(x) ** (1/int(y)))
+
+            user_root = input("Would you like to calculate again? ")
+            if user_root.lower() == "yes" or user_root.lower() == "y":
+                roots_calculator()
+
+            elif user_root.lower() == "no" or user_root.lower() == "n":
+                break
+
+# Asks the user as they start the program what calculator they would like to use
+
+
+calculator_type = input("Would you like to use the basic or exponent calculator? ")
+
+# Calls the functions above
+if calculator_type.lower() == "basic" or calculator_type.lower() == "b":
+    basic_calculator()
+
+elif calculator_type.lower() == "exponents" or calculator_type.lower() == "e":
+    roots_calculator()
